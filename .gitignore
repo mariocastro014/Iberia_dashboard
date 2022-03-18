@@ -1,4 +1,5 @@
-dockerignore
+.dockerignore
 Dockerfile
 Pipfile
 Pipfile.lock
+__pycache__/

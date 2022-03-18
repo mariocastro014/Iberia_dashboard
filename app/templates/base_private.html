@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="static/img/isotipo_iberia.png">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/base_private.css')}}">
+    <link {% block styles %}{% endblock %} />
+</head>
+<body>
+    <div class="container master-container">
+
+        <header class="container global-header">
+            header
+        </header>
+    
+        <nav class="container global-nav">
+            <ul class="menu">
+                <li><a href="#">Home</li>
+                <li><a href="#">KPI - </a></li>
+                <li><a href="#">menu item</a></li>
+                <li><a href="#">menu item</a></li>
+                <li><a href="#">LOGOUT</a></li>
+            </ul>
+        </nav>
+    
+        <section class="container main-content">
+            <main>{% block main %}{% endblock %}</main>
+        </section>
+    
+        <div class="container footer-buffer"><!-- empty --></div>    
+    </div>
+    
+    <footer class="container global-footer">
+        <ul class=”footer-links”>
+            <li>
+              <a href=”/about/”>About</a>
+            </li>
+            <li>
+              <a href=”/privacy-policy/”>Privacy Policy</a>
+            </li>
+            <li>
+              <a href=”/disclaimer/”>Disclaimer</a>
+            </li>
+         </ul>
+        <p class="text-center">Copyright &copy; Made with ❤ by Mario, 2022</p>
+    </footer>
+</body>
+</html>
