@@ -1,5 +1,16 @@
 {% extends "base.html" %}
-{% block title %}Oops something went wrong{% endblock %}
+
+{% block title %}Error 404: Page not found{% endblock %}
+
+{% block styles %}
+rel="stylesheet"
+href="{{url_for('static', filename='css/errors.css')}}"
+{% endblock %}
+
 {% block main %}
-<h2>404, something went wrong :/</h2>
+<div id="main">
+    <div class="fof">
+          <h1>Error 404</h1>
+    </div>
+</div>
 {% endblock %}

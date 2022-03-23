@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Error 403: Not Autorized{% endblock %}
+
+{% block styles %}
+rel="stylesheet"
+href="{{url_for('static', filename='css/errors.css')}}"
+{% endblock %}
+
+{% block main %}
+<div id="main">
+    <div class="fof">
+        <h1>Autorization Denied</h1>
+          <div>
+            <a href="{{url_for('index')}}">Back to the Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

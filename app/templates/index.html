@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+
 {% block styles %} 
 rel="stylesheet"
 href="{{url_for('static', filename='css/login.css')}}"
 {% endblock %}
 
-{% block title %}KPI PROJECT | LOG IN{% endblock %}
+{% block title %}TIP Project | Log in{% endblock %}
 
 {% block main %}
 <div class="container">
@@ -22,7 +23,11 @@ href="{{url_for('static', filename='css/login.css')}}"
 				<button class="button login__submit" type="submit">
 					<span class="button__text">Log In Now</span>
 					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
+				</button>
+				<div class="login__link">
+					<a href="/signup">Create Account</a>
+				</div>
+									
 			</form>
 			<div class="iberia__logo">
 				<img class= "logo" src="/static/img/logo_iberia.png" alt="iberia logo">

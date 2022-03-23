@@ -1,7 +1,15 @@
 from flask import render_template, request, session, redirect, url_for
-from app import app, public, data_requets
+from app import app
 from werkzeug.security import generate_password_hash, check_password_hash
 
 @app.route("/dashboard")
 def dashboard():
-        return render_template("dashboard.html")
+        if "username" not in session:
+                return render_template("403.html"), 403 
+        else:
+                return render_template("dashboard.html") 
+
+@app.route("/logout")
+def logout():
+    session.pop("username")
+    return redirect(url_for("index"))

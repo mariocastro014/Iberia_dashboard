@@ -78,7 +78,10 @@ body {
 .login {
 	width: 320px;
 	padding: 30px;
-	padding-top: 156px;
+	min-height: 550px;
+	padding-top: 110px;
+	vertical-align: middle;
+	position: relative;
 }
 
 .login__field {
@@ -103,6 +106,18 @@ body {
 	transition: .2s;
 }
 
+a {
+	color: #F2B705;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.login__link {
+	padding-top: 20px;
+	width: 100%;
+	text-align: center;
+}
+
 .login__input:active,
 .login__input:focus,
 .login__input:hover {
@@ -113,7 +128,7 @@ body {
 .login__submit {
 	background: #fff;
 	font-size: 14px;
-	margin-top: 30px;
+	margin-top: 20px;
 	padding: 16px 20px;
 	border-radius: 26px;
 	border: 1px solid #D4D3E8;
@@ -126,6 +141,7 @@ body {
 	box-shadow: 0px 2px 2px #F2B705;
 	cursor: pointer;
 	transition: .2s;
+    bottom: 0px;
 }
 
 .login__submit:active,
