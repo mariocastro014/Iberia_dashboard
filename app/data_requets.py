@@ -1,7 +1,7 @@
 from flask import request, jsonify, make_response
 import requests, json
 import pandas as pd
-#from app import app
+from app import app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 
@@ -45,7 +45,11 @@ def raised_incidences_month():
     data_oracle = pd.DataFrame(data_oracle).rename(columns={'month':'Months','priority':'Priority','incidences_number':'Incidences'})  
     return data_oracle
 
-
+def closed_incidences_month():
+    url = adb_path + 'kpi1/incvol/'
+    data_oracle = requests.get(url).json()['items']
+    data_oracle = pd.DataFrame(data_oracle).rename(columns={'month':'Months','priority':'Priority','incidences_number':'Incidences'})  
+    return data_oracle
 
 def kpi1():
     kpi1_query = f"""    
