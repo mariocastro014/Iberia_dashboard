@@ -9,6 +9,6 @@ gcloud run deploy iberia-project \
     --image gcr.io/$GOOGLE_PROJECT_ID/iberia-project \
     --platform managed \
     --port 8080 \
-    --region europe-west3 \
+    --region us-central1 \
     --allow-unauthenticated \
     --project=$GOOGLE_PROJECT_ID
