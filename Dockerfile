@@ -1,6 +1,6 @@
 FROM python:3
 
-ENV PORT 80
+ENV PORT=8080
 ENV HOST=0.0.0.0
 
 EXPOSE 80
@@ -13,4 +13,4 @@ COPY requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "main.py"]
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
