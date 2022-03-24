@@ -1,4 +1,3 @@
-from flask import session,redirect, url_for
 from app import data_requets
 from dash import dcc, html, Dash
 import plotly.express as px

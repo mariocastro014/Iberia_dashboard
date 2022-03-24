@@ -21,10 +21,10 @@ def handle_login():
         
         else:
             
-            return render_template("403.html"), 403
+            return render_template("errors/403.html"), 403
     else:
             
-        return render_template("403.html"), 403
+        return render_template("errors/403.html"), 403
 
 
 @app.route("/signup")
