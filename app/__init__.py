@@ -11,8 +11,7 @@ PORT="3306"
 PROJECT_ID ="iberia-project-344914"
 INSTANCE_NAME ="iberia-project"
 
-# app.config["SQLALCHEMY_DATABASE_URI"]= f"mysql + mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
-# configuration
+# create the databases urls
 mysql_path = f"mysql+pymysql://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}:{PORT}/{DBNAME}"
 oracle_path = 'https://g10e916cba8455f-database1.adb.eu-frankfurt-1.oraclecloudapps.com/ords/tip/'
 

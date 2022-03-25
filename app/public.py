@@ -17,7 +17,7 @@ def handle_login():
 
         if user and check_password_hash(user[0], password):
             session["username"] = username_email
-            return redirect(private.url_for("dashboard"))
+            return redirect(private.url_for("dashboard_raised"))
         
         else:
             

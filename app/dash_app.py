@@ -11,21 +11,25 @@ def create_dash_application(flask_app):
     alta = raised_incidences[raised_incidences['Priority']=='Alta']
     media = raised_incidences[raised_incidences['Priority']=='Media']
     baja = raised_incidences[raised_incidences['Priority']=='Baja']
-   
-    
-    # data_frame_bars = [total,critical]
-    
-    # for x in range(1,len(data_frame_bars)):
+    # data_frames = [total, critical]
+
+    # for x in range(1,len(data_frames)):
     dash_app = Dash( server= flask_app , name="Dashboard-1", url_base_pathname="/total_incidents_1/", external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css'])
     dash_app.layout = html.Div(
         children=[
             dcc.Graph(
                 id="Graph-1",
-                figure=go.Figure(data=[go.Scatter(x=total['Months'], y=total['Incidences'])])
+                figure=go.Figure(
+                    data= [go.Scatter(x=total['Months'], y=total['Incidences'])]
+                )
             ),
             dcc.Graph(
                 id="Graph-2",
-                figure=px.bar(total, x="Months", y="Incidences", barmode="group")
+                figure=px.bar(
+                    total, 
+                    x="Months", 
+                    y="Incidences", 
+                    barmode="group")
             )
         ]
     )
@@ -35,7 +39,11 @@ def create_dash_application(flask_app):
         children=[
             dcc.Graph(
                 id="Graph-3 ",
-                figure=px.bar(critical, x="Months", y="Incidences", barmode="group")
+                figure=px.bar(
+                    critical, 
+                    x="Months", 
+                    y="Incidences", 
+                    barmode="group")
             )
         ]
     )
