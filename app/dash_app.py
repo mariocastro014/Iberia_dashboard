@@ -1,7 +1,6 @@
 from app import data_request
 from dash import dcc, html, Dash, dash_table
 import plotly.graph_objects as go
-from dash.dependencies import Input, Output
 import plotly.express as px
 import plotly.graph_objs as go
 
@@ -10,9 +9,8 @@ def create_dash_application(flask_app):
     raised_data= data_request.segmentate_information(data_request.raised_incidences_month())
     closed_data= data_request.segmentate_information(data_request.closed_incidences_month())
     backlog_data= data_request.segmentate_information(data_request.backlog_incidences_month())
-    incident_time = data_request.sla_achivement(data_request.incidences_time_priority()[0])
+    sla_data = data_request.sla_achivement(data_request.incidences_time_priority()[0])
     incidents_type= data_request.incidences_type_month()
-    # for x in range(1,len(data_frames)):
 
     dash_app = Dash( server= flask_app , name="Raised-1", url_base_pathname="/raised_incidents_1/", external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css'])
     dash_app.layout = html.Div(
@@ -136,12 +134,14 @@ def create_dash_application(flask_app):
         ]
     )
 
-    dash_app = Dash( server= flask_app , name="", url_base_pathname="/time_incidents_1/", external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css'])
+    fig = px.bar(sla_data, x='priority', y=['Reached_SLA','Failed_SLA'], title="SLA per Category")
+    dash_app = Dash( server= flask_app , name="", url_base_pathname="/sla_measures/", external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css'])
     dash_app.layout = html.Div(
         children=[
-            
-            
-            
+                dcc.Graph(
+                    id="SLA",
+                    figure=fig
+                )        
         ]
     )
 
