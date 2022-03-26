@@ -1,4 +1,4 @@
-from app import app, data_requets, private
+from app import app, data_request, private
 from flask import render_template, request, session, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -13,7 +13,7 @@ def handle_login():
         username_email = request.form['username']
         password = request.form['password']
         
-        user = data_requets.request_user(username_email)
+        user = data_request.request_user(username_email)
 
         if user and check_password_hash(user[0], password):
             session["username"] = username_email
@@ -40,6 +40,6 @@ def handle_register():
 
     hashed_password = generate_password_hash(password)
 
-    data_requets.register_user(username, email, hashed_password)
+    data_request.register_user(username, email, hashed_password)
 
     return redirect(url_for("index"))

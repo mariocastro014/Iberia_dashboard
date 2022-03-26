@@ -1,6 +1,6 @@
 {% extends "base/layout.html" %}
 {% block styles %} 
-rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}"
+<link rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}"/>
 {% endblock %}
 {% block title %}Iberia Airlines | Dashboard{% endblock %}
 
@@ -12,7 +12,7 @@ rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}"
             <div class="card-body">
                 <div class="chart-container" style="position: relative;">
                     <h2>Total Ammount of Incidents Per Month | Graph 1</h2>
-                    <iframe src="/total_incidents_1/" id="my-iframe" width=100% height=480></iframe>
+                    <iframe src="/raised_incidents_1/" id="my-iframe" width=100% height=480></iframe>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@ rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}"
             <div class="card-body">
                 <div class="chart-container" style="position: relative;">
                     <h2>Critical Incidents per Month | Graph 2</h2>
-                    <iframe src="/total_incidents_2/" id="my-iframe" width=100% height=480></iframe>
+                    <iframe src="/raised_incidents_2/" id="my-iframe" width=100% height=480></iframe>
                 </div>
             </div>
         </div>
@@ -33,8 +33,8 @@ rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}"
         <div class="card card-style mb-2">
             <div class="card-body">
                 <div class="chart-container" style="position: relative;">
-                    <h2>Incidents Priority per Month | Graph 3</h2>
-                    <iframe src="/total_incidents_3/" id="my-iframe" width=100% height=480></iframe>
+                    <h2>Incidents Priority per Month</h2>
+                    <iframe src="/raised_incidents_3/" id="my-iframe" width=100% height=480></iframe>
                 </div>
             </div>
         </div>

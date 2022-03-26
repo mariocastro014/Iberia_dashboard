@@ -1,0 +1,20 @@
+{% extends "base/layout.html" %}
+
+{% block title %}Iberia Airlines | Dashboard{% endblock %}
+
+{% block sectiontitle %} Incidents Types {% endblock %}
+
+{% block main %}
+
+<div class="col-xs-10 col-sm-6 col-md-6">
+    <div class="table card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: relative;">
+                <h2>Incidents Type Per Month | Graph 2</h2>
+                <iframe src="/type_incidents/" id="my-iframe" width=100% height=550></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
