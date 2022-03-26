@@ -4,7 +4,7 @@ rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}"
 {% endblock %}
 {% block title %}Iberia Airlines | Dashboard{% endblock %}
 
-{% block sectiontitle %} Incidents Backlog {% endblock %}
+{% block sectiontitle %} Incidents Closed {% endblock %}
 
 {% block main %}
     <div class="col-xs-10 col-sm-6 col-md-6">
@@ -12,7 +12,17 @@ rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}"
             <div class="card-body">
                 <div class="chart-container" style="position: relative;">
                     <h2>Total Ammount of Incidents Per Month | Graph 1</h2>
-                    <iframe src="/raised_incidents_1/" id="my-iframe" width=100% height=480></iframe>
+                    <iframe src="/closed_incidents_1/" id="my-iframe" width=100% height=480></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-10 col-sm-6 col-md-6">
+        <div class="card card-style mb-2">
+            <div class="card-body">
+                <div class="chart-container" style="position: relative;">
+                    <h2>Total Ammount of Incidents Per Month | Graph 1</h2>
+                    <iframe src="/closed_incidents_2/" id="my-iframe" width=100% height=480></iframe>
                 </div>
             </div>
         </div>

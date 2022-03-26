@@ -1,29 +1,29 @@
 import requests
 import pandas as pd
 import numpy as np
-# from app import oracle_path, mysql_path
+from app import oracle_path, mysql_path
 from sqlalchemy import create_engine
 
 oracle_path = 'https://g10e916cba8455f-database1.adb.eu-frankfurt-1.oraclecloudapps.com/ords/tip/'
-# engine = create_engine(mysql_path)
+engine = create_engine(mysql_path)
 
-# def register_user(username, email, hashed_password):
-#     insert_user = f"""
-#     INSERT INTO USERS(username, email, password)
-#     VALUES ('{username}', '{email}', '{hashed_password}')
-#     """
-#     with engine.connect() as connection:
-#         connection.execute(insert_user)
+def register_user(username, email, hashed_password):
+    insert_user = f"""
+    INSERT INTO USERS(username, email, password)
+    VALUES ('{username}', '{email}', '{hashed_password}')
+    """
+    with engine.connect() as connection:
+        connection.execute(insert_user)
 
-# def request_user(username_email):
-#     login_query = f"""    
-#         SELECT password
-#         FROM USERS
-#         WHERE username='{username_email}' OR email='{username_email}'
-#         """
-#     with engine.connect() as connection:  
-#         user = connection.execute(login_query).fetchone()
-#     return user
+def request_user(username_email):
+    login_query = f"""    
+        SELECT password
+        FROM USERS
+        WHERE username='{username_email}' OR email='{username_email}'
+        """
+    with engine.connect() as connection:  
+        user = connection.execute(login_query).fetchone()
+    return user
 
 def raised_incidences_month():
     url = oracle_path + 'kpi1/incvol'
@@ -85,10 +85,6 @@ def sla_achivement(data):
     incidences_time_priority['SLA'] = np.select(conditions, values)
     
     incidences_time_priority['Reached_SLA'] = np.where((incidences_time_priority['time_diff'] < incidences_time_priority['SLA'] ), 1, 0)
-    
-    
-    incidences_time_priority=incidences_time_priority.groupby(['priority']).size()
-    return incidences_time_priority
-
-
-print(sla_achivement(incidences_time_priority()[0]))
+    incidences_time_priority['Failed_SLA'] = np.where((incidences_time_priority['time_diff'] > incidences_time_priority['SLA'] ), 1, 0)
+    total = incidences_time_priority.groupby(['priority'])[['Reached_SLA', 'Failed_SLA']].sum().reset_index()
+    return total
